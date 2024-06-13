@@ -2,8 +2,8 @@ import coffeeOrderModel from "../models/coffeeOrder.js";
 
 const createCoffeeOrder = async (req, res) => {
     try {
-        const { coffeeId, orderId } = req.body;
-        const newCoffeeOrder = new coffeeOrderModel({ coffeeId, orderId });
+        const { coffeeId, size, orderId } = req.body;
+        const newCoffeeOrder = new coffeeOrderModel({ coffeeId, size, orderId });
         await newCoffeeOrder.save();
         res.status(201).json({ message: 'Coffee order created successfully', coffeeOrder: newCoffeeOrder });
     } catch (error) {

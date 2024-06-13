@@ -3,8 +3,8 @@ import coffeeBeanOrderModel from "../models/coffeeBeanOrder.js";
 // Create a new coffee bean order
 const createCoffeeBeanOrder = async (req, res) => {
     try {
-        const { beanId, orderId } = req.body;
-        const newCoffeeBeanOrder = new coffeeBeanOrderModel({ beanId, orderId });
+        const { beanId, size, orderId } = req.body;
+        const newCoffeeBeanOrder = new coffeeBeanOrderModel({ beanId, size, orderId });
         await newCoffeeBeanOrder.save();
         res.status(201).json({ message: 'Coffee bean order created successfully', coffeeBeanOrder: newCoffeeBeanOrder });
     } catch (error) {

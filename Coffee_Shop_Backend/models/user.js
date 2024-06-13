@@ -1,21 +1,33 @@
-import mongoose from "../config/mongooseConfig.js";
+import mongoose from 'mongoose';
+import bcrypt from 'bcrypt';
 
-//User Schema
-const {Schema} = mongoose;
+const { Schema } = mongoose;
 
 const userSchema = new Schema({
-    userName: {
-        type: String
-    },
-    email: {
-        type: String
-    },
-    password: {
-        type: String
-    },
+    userName: { type: String, required: true },
+    email: { type: String, required: true },
+    password: { type: String, required: true }
+}, {
+    collection: 'user'
 });
 
-//User Model
-const userModel = new mongoose.model("user", userSchema);
+// Middleware to hash password before saving
+userSchema.pre('save', async function(next) {
+    try {
+        // Only hash the password if it has been modified (or is new)
+        if (!this.isModified('password')) {
+            return next();
+        }
+
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(this.password, salt);
+        this.password = hashedPassword;
+        next();
+    } catch (error) {
+        return next(error);
+    }
+});
+
+const userModel = mongoose.model('user', userSchema);
 
 export default userModel;

@@ -6,6 +6,7 @@ const {Schema} = mongoose;
 const coffeeOrderSchema = new Schema(
     {
         coffeeId: { type: String, required: true },
+        size: { type: String, required: true },
         orderId: { type: Schema.Types.ObjectId, ref: "orderPayment", required: true }
     },
     {
