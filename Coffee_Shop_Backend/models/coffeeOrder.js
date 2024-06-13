@@ -1,4 +1,4 @@
-/* import mongoose from "../config/mongooseConfig.js";
+import mongoose from "../config/mongooseConfig.js";
 
 // Coffee Order Schema
 const {Schema} = mongoose;
@@ -17,4 +17,4 @@ const coffeeOrderSchema = new Schema(
 // Coffee Order Model
 const orderPaymentModel = new mongoose.model("coffeeOrder", coffeeOrderSchema);
 
-export default orderPaymentModel; */
+export default orderPaymentModel;

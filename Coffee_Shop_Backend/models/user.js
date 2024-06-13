@@ -4,15 +4,15 @@ import mongoose from "../config/mongooseConfig.js";
 const {Schema} = mongoose;
 
 const userSchema = new Schema({
-    fname: {
+    userName: {
         type: String
     },
-    lname: {
+    email: {
         type: String
     },
-    age: {
-        type: Number
-    }
+    password: {
+        type: String
+    },
 });
 
 //User Model

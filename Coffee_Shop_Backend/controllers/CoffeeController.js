@@ -1,15 +1,23 @@
-/* import userModel from "../models/userModel.js";
+import coffeeModel from "../models/coffee.js";
 
-const createCoffee = async (req,res) => {
-    const { fname, lname, age } = req.body;
-    const newUser = new userModel({ fname, lname, age });
-    await newUser.save();
-    res.status(201).json({ message: 'Coffee created successfully', user: newUser });
+const createCoffee = async (req, res) => {
+    try {
+        const { name, prices, coffeeId } = req.body;
+        const newCoffee = new coffeeModel({ name, prices, coffeeId });
+        await newCoffee.save();
+        res.status(201).json({ message: 'Coffee created successfully', coffee: newCoffee });
+    } catch (error) {
+        res.status(500).json({ message: 'Error creating coffee', error });
+    }
 }
 
-const readCoffee = async (req,res) => {
-    const users = await userModel.find();
-    res.json(users);
+const readCoffee = async (req, res) => {
+    try {
+        const coffees = await coffeeModel.find();
+        res.json(coffees);
+    } catch (error) {
+        res.status(500).json({ message: 'Error reading coffee', error });
+    }
 }
 
-export {createCoffee, readCoffee}; */
+export { createCoffee, readCoffee };

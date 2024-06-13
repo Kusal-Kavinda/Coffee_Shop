@@ -1,18 +1,29 @@
 import express from "express";
-// import {createUser, readUsers, createCoffee, readCoffee, createCoffeeBean, readCoffeeBean, createOrder, readOrder} from "../controllers/userController.js";
+// import {createCoffeeBean, readCoffeeBean, createOrder, readOrder} from "../controllers/userController.js";
+import { createCoffeeBeanOrder, readCoffeeBeanOrder } from "../controllers/coffeeBeanOrderController.js";
+import { createCoffeeOrder, readCoffeeOrders } from "../controllers/coffeeOrderController.js";
+import {createOrderPayment, readOrderPayment} from "../controllers/orderPaymentController.js";
+import {createCoffeeBean, readCoffeeBean} from "../controllers/coffeeBeanController.js";
+import {createCoffee, readCoffee} from "../controllers/coffeeController.js";
 import {createUser, readUsers} from "../controllers/userController.js";
 const router = express.Router();
 
-router.post("/create", createUser);
+router.post("/createUser", createUser);
 router.get("/users", readUsers);
-/* 
-router.post("/create", createCoffee);
-router.get("/users", readCoffee);
 
-router.post("/create", createCoffeeBean);
-router.get("/users", readCoffeeBean);
+router.post("/createCoffee", createCoffee);
+router.get("/coffees", readCoffee);
 
-router.post("/create", createOrder);
-router.get("/users", readOrder); */
+router.post("/createCoffeeBean", createCoffeeBean);
+router.get("/coffeeBeans", readCoffeeBean);
+
+router.post('/createOrderPayment', createOrderPayment);
+router.get('/orderPayments', readOrderPayment);
+
+router.post("/createCoffeeOrder", createCoffeeOrder);
+router.get("/coffeeOrders", readCoffeeOrders);
+
+router.post("/createCoffeeBeanOrder", createCoffeeBeanOrder);
+router.get("/coffeeBeanOrders", readCoffeeBeanOrder);
 
 export default router;

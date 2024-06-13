@@ -1,8 +1,8 @@
-import userModel from "../models/userModel.js";
+import userModel from "../models/user.js";
 
 const createUser = async (req,res) => {
-    const { fname, lname, age } = req.body;
-    const newUser = new userModel({ fname, lname, age });
+    const { userName, email, password } = req.body;
+    const newUser = new userModel({ userName, email, password });
     await newUser.save();
     res.status(201).json({ message: 'User created successfully', user: newUser });
 }

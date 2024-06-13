@@ -1,4 +1,4 @@
-/* import mongoose from "../config/mongooseConfig.js";
+import mongoose from "../config/mongooseConfig.js";
 
 //Order Payment Schema
 const {Schema} = mongoose;
@@ -22,4 +22,4 @@ const orderPaymentSchema = new Schema(
 // Order Payment Model
 const orderPaymentModel = new mongoose.model("orderPayment", orderPaymentSchema);
 
-export default orderPaymentModel; */
+export default orderPaymentModel;

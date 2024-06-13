@@ -1,4 +1,4 @@
-/* import mongoose from "../config/mongooseConfig.js";
+import mongoose from "../config/mongooseConfig.js";
 
 //Coffee Schema
 const {Schema} = mongoose;
@@ -27,4 +27,4 @@ const coffeeSchema = new Schema(
 // Coffee Model
 const coffeeModel = new mongoose.model("coffee", coffeeSchema);
 
-export default coffeeModel; */
+export default coffeeModel;
