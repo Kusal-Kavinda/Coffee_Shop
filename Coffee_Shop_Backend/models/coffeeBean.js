@@ -1,6 +1,6 @@
 import mongoose from "../config/mongooseConfig.js";
 
-//User Schema
+//Coffee Bean Schema
 const {Schema} = mongoose;
 
 const priceSchema = new Schema(
