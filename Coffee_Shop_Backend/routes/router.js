@@ -5,11 +5,12 @@ import { createCoffeeOrder, readCoffeeOrders } from "../controllers/coffeeOrderC
 import {createOrderPayment, readOrderPayment} from "../controllers/orderPaymentController.js";
 import {createCoffeeBean, readCoffeeBean} from "../controllers/coffeeBeanController.js";
 import {createCoffee, readCoffee} from "../controllers/coffeeController.js";
-import { createUser, readUsers, readUserByEmail } from "../controllers/userController.js";
+import { createUser, signinUser, readUsers, readUserByEmail } from "../controllers/userController.js";
 
 const router = express.Router();
 
 router.post("/createUser", createUser);
+router.post("/signin", signinUser);
 router.get("/users", readUsers);
 router.get("/user/:email", readUserByEmail);
 

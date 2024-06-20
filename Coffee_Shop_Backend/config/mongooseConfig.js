@@ -9,6 +9,6 @@ mongoose.connect(mongoURL)
 .then(() => {
     console.log("Database Connected!")
 })
-.catch(err => console.log("Error connecting to database!", err))
+.catch(err => console.log("Error Connecting to Database!", err))
 
 export default mongoose;
